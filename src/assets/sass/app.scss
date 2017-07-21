@@ -1,0 +1,65 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
+
+// Variables
+@import "variables";
+
+@import "~uikit/src/scss/uikit-theme.scss";
+@import "simplebar";
+
+body {
+  background: url('https://crowdcast-prod.imgix.net/-KVVl3oF5Tlh2sH5drTn/profile-cover-3819') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-left: 160px;
+  min-height: 100vh;
+  overflow: hidden !important;
+}
+
+@media (max-width: 629px) {
+    body, .uk-container {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .fix {
+      margin: 0 !important;
+      height: 95vh !important;
+    }
+
+}
+
+
+img {
+  max-width: 350px;
+  height: auto;
+
+}
+
+
+
+.fix {
+  overflow: hidden;
+  margin-top: 2.5vh;
+  height: 95vh;
+}
+
+
+
+
+
+.slide-fade-enter-active {
+  transition: all 0.8s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.3s linear;
+  transform: translateX(-50px);
+
+  opacity: 0;
+}
+.slide-fade-enter
+/* .slide-fade-leave-active for <2.1.8 */ {
+  transform: scale(0);
+  opacity: 0;
+}
