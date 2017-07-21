@@ -1,6 +1,7 @@
 # vresume
 
-> Vytautas Narkevicius resume webpage
+> Clean and simple resume/portfolio website.
+> Built using VueJS
 
 ## Build Setup
 

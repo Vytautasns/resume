@@ -11,10 +11,15 @@
       <div class="uk-grid-divider" uk-grid>
 
           <div class="uk-width-1-3@m">
-            <h1 class="uk-text-lead">Kontaktine informacija</h1>
+            <h1 class="uk-text-lead">Kontaktinė informacija</h1>
             <p><span class="uk-text-primary" uk-icon="icon: location;"></span> <span>Vilnius, Lietuva</span></p>
             <p><span class="uk-text-primary" uk-icon="icon: mail;"></span> <span>vytautasns@gmail.com</span></p>
             <p><span class="uk-text-primary" uk-icon="icon: phone;"></span> <span>+370 605 74 307</span></p>
+            <ul class="uk-iconnav">
+              <li><a href="https://www.facebook.com/vytautasns" uk-icon="icon: facebook"></a></li>
+              <li><a href="https://www.linkedin.com/in/vytautas-narkevi%C4%8Dius-a87725121/" uk-icon="icon: linkedin"></a></li>
+              <li><a href="https://github.com/Vytautasns" uk-icon="icon: github"></a></li>
+            </ul>
           </div>
 
           <div class="uk-width-expand@m">
@@ -47,7 +52,7 @@
                         <div class="uk-margin">
                            <button class="uk-button uk-button-primary">
                              <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                             Siūsti
+                             Siųsti
                            </button>
                         </div>
                   </fieldset>

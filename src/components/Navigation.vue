@@ -1,35 +1,48 @@
 <template lang="html">
-  <transition appear
-   name="custom-classes-transition"
-   enter-active-class="animated fadeInLeft"
-   leave-active-class="animated zoomOut"
-   mode="out-in"
-   v-if="show"
-   >
+  <div>
+    <div class="hamburger uk-hidden@s uk-tile uk-tile-muted uk-box-shadow-medium">
+      <span @click="showMobile = !showMobile" uk-icon="icon: menu; ratio: 2;"></span>
+      <h2 class="uk-heading-bullet uk-align-right uk-display-inline">VN</h2>
+    </div>
 
-   <div class="nav uk-primary uk-box-shadow-large">
-     <div>
-       <div class="uk-card uk-text-center uk-visible@s">
-         <div class="uk-card-body">
-           <h1 class="uk-heading-bullet">VN</h1>
-           <p>Vytautas Narkevicius</p>
-         </div>
-       </div>
+    <transition appear
+    name="custom-classes-transition"
+    enter-active-class="animated fadeInLeft"
+    leave-active-class="animated zoomOut"
+    mode="out-in"
+    >
+    <div class="nav uk-box-shadow-large uk-visible@s">
+      <div class="uk-card uk-text-center">
+        <div class="uk-card-body">
+          <h1 class="uk-heading-bullet">VN</h1>
+          <p>Vytautas Narkevičius</p>
+        </div>
+      </div>
+      <div class="uk-text-center" @click="$emit('clicked')">
+        <router-link :to="item.link" tag="div" class="nav-item" v-for="item in items" :key="item.title" exact>
+          <i :class="`fa fa-${item.icon} fa-2x`" aria-hidden="true"></i>
+          <p class="uk-padding-remove uk-margin-remove">{{ item.title }}</p>
+        </router-link>
+      </div>
+    </div>
+  </transition>
 
-       <div class="uk-text-center" @click="$emit('clicked')">
-           <router-link :to="item.link" tag="div" class="nav-item" v-for="item in items" :key="item.title" exact>
-             <i :class="`fa fa-${item.icon} fa-2x`" aria-hidden="true"></i>
-             <p class="uk-padding-remove uk-margin-remove">{{ item.title }}</p>
-           </router-link>
-       </div>
-
-     </div>
-
-   </div>
-
-
-
+  <transition
+  name="custom-classes-transition"
+  enter-active-class="animated fadeInLeft"
+  leave-active-class="animated fadeOutLeft"
+  mode="out-in"
+  >
+  <div class="nav uk-box-shadow-xlarge" v-if="showMobile">
+    <div class="uk-text-center" @click="showMobile = !showMobile">
+      <router-link :to="item.link" tag="div" class="nav-item" v-for="item in items" :key="item.title" exact>
+        <i :class="`fa fa-${item.icon} fa-2x`" aria-hidden="true"></i>
+        <p class="uk-padding-remove uk-margin-remove">{{ item.title }}</p>
+      </router-link>
+    </div>
+  </div>
 </transition>
+</div>
 </template>
 
 <script>
@@ -38,7 +51,7 @@ export default {
 
   data() {
     return {
-
+      showMobile: false,
       items: [
         {
           link: '/',
@@ -73,7 +86,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
+  .hamburger {
+    padding: 8px;
+    opacity: 1;
+    /*position: fixed;
+    top: 0; left: 0;*/
+    z-index: 19;
+  }
 
 .nav {
   background-color: #fff;
@@ -95,7 +114,7 @@ export default {
 }
 
 .nav-item i {
-    color: #1e9edf;
+  color: #1e9edf;
 }
 
 .router-link-exact-active {
